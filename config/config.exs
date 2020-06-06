@@ -25,7 +25,8 @@ config :logger, :console,
 
 config :tutopoint, :pow,
   user: Tutopoint.Users.User,
-  repo: Tutopoint.Repo
+  repo: Tutopoint.Repo,
+  web_module: TutopointWeb
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason

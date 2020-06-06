@@ -1,0 +1,37 @@
+<h1>Listing Guides</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>College</th>
+      <th>Major</th>
+      <th>Grade</th>
+      <th>Hs</th>
+      <th>Language</th>
+      <th>Stripeid</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for guide <- @guides do %>
+    <tr>
+      <td><%= guide.user_id %></td>
+      <td><%= guide.college %></td>
+      <td><%= guide.major %></td>
+      <td><%= guide.grade %></td>
+      <td><%= guide.hs %></td>
+      <td><%= guide.language %></td>
+      <td><%= guide.stripeid %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.guide_path(@conn, :show, guide) %></span>
+        <span><%= link "Edit", to: Routes.guide_path(@conn, :edit, guide) %></span>
+        <span><%= link "Delete", to: Routes.guide_path(@conn, :delete, guide), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Guide", to: Routes.guide_path(@conn, :new) %></span>

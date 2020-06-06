@@ -14,22 +14,40 @@ defmodule TutopointWeb.Router do
   pipeline :protected do
     plug Pow.Plug.RequireAuthenticated,
       error_handler: Pow.Phoenix.PlugErrorHandler
-
   end
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/" do
-  pipe_through :browser
-    pow_routes()
+  pipeline :admin do
+    plug TutopointWeb.EnsureRolePlug, :admin
+  end
 
+  pipeline :user do
+    plug TutopointWeb.EnsureRolePlug, :admin
+  end
+
+  pipeline :guide do
+    plug TutopointWeb.EnsureRolePlug, :admin
+  end
+
+
+  scope "/", Pow.Phoenix, as: "pow" do
+    pipe_through :browser
+
+    get "/register", RegistrationController, :new
+    post "/register", RegistrationController, :create
+    get "/signin", SessionController, :new
+    get "/logout", SessionController, :delete
+    post "/signin", SessionController, :create
   end
 
   scope "/", TutopointWeb do
+    pipe_through :protected
     pipe_through :browser
 
+    resources "/guides", GuideController
     live "/", PageLive, :index
   end
 

@@ -1,0 +1,43 @@
+<h1>Show Guide</h1>
+
+<ul>
+
+  <li>
+    <strong>id:</strong>
+    <%= @guide.id %>
+  </li>
+
+  <li>
+    <strong>College:</strong>
+    <%= @guide.college %>
+  </li>
+
+  <li>
+    <strong>Major:</strong>
+    <%= @guide.major %>
+  </li>
+
+  <li>
+    <strong>Grade:</strong>
+    <%= @guide.grade %>
+  </li>
+
+  <li>
+    <strong>Hs:</strong>
+    <%= @guide.hs %>
+  </li>
+
+  <li>
+    <strong>Language:</strong>
+    <%= @guide.language %>
+  </li>
+
+  <li>
+    <strong>Stripeid:</strong>
+    <%= @guide.stripeid %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.guide_path(@conn, :edit, @guide) %></span>
+<span><%= link "Back", to: Routes.guide_path(@conn, :index) %></span>

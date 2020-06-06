@@ -5,24 +5,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <%= csrf_meta_tag() %>
-    <%= live_title_tag assigns[:page_title] || "Tutopoint", suffix: " · Phoenix Framework" %>
+    <%= live_title_tag assigns[:page_title] || "Tutopoint", suffix: " · What's our slogan?" %>
+        <script src="https://kit.fontawesome.com/ec65ba9ed4.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
   <body>
     <header>
-      <section class="container">
-        <nav role="navigation">
-          <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
-            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
-            <% end %>
-          </ul>
-        </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
-          <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
-        </a>
+      <section class="mb-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a href="/" class="navbar-brand w-25 font-weight-bold">Tutopoint</a>  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse justify-content-center navbar-collapse w-100" id="navbarSupportedContent">
+          <form class="form-inline my-2 my-lg-0 w-100">
+            <div class="input-group w-100">
+              <div class="input-group-prepend">
+                <button class="btn btn-light dropdown-toggle rounded-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Filters?</a>
+                </div>
+              </div>
+              <input type="text" class="form-control border-white" placeholder="Search SAT, ACT, APCS, etc" aria-label="Search SAT, ACT, APCS, etc">
+              <div class="input-group-append rounded-0">
+                <button type="button" class="btn bg-white rounded-0"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="navbar-brand w-25 d-flex justify-content-end">
+          <button class="btn btn-lg px-1 mr-2"><i class="text-white far fa-bell"></i></button>
+          <div class="dropdown">
+            <button class="btn btn-lg px-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="far fa-user-circle text-white"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#"><i class="fas fa-user-circle"></i> My Profile</a>
+              <a class="dropdown-item" href="#"><i class="fas fa-calendar-times"></i> My Upcoming Sessions</a>
+              <a class="dropdown-item" href="#"><i class="fas fa-comment-alt"></i> Chat</a>
+              <a class="dropdown-item" href="#"><i class="fas fa-exclamation-triangle"></i> Report a problem</a>
+              <a class="dropdown-item" href="/logout"><i class="fas fa-sign-out-alt"></i> Log out</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <nav class="navbar navbar-expand-lg bg-light p-0">
+        <a href="/" class="navbar-brand w-25"></a>
+            <ul class="nav w-100 justify-content-between">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Our Guides</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Tutoring</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Group Lessons</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Categories</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Curriculums</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Explore Colleges</a>
+              </li>
+            </ul>
+
+        <a href="/" class="navbar-brand w-25"></a></nav>
       </section>
     </header>
     <%= @inner_content %>
