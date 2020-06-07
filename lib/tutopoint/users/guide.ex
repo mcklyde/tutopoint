@@ -3,7 +3,7 @@ defmodule Tutopoint.Users.Guide do
   import Ecto.Changeset
 
   schema "guides" do
-    field :user_id, :integer
+    belongs_to :user, Tutopoint.Users.User
     field :college, :string
     field :grade, :string
     field :hs, :string

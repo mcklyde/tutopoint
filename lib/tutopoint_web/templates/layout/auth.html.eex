@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <%= csrf_meta_tag() %>
+    <%= live_title_tag assigns[:page_title] || "Tutopoint", suffix: " · What's our slogan?" %>
+        <script src="https://kit.fontawesome.com/ec65ba9ed4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+    <style>
+       .form-control::placeholder {
+    color: #fff;
+    opacity: 1; } 
+    .form-control {
+        color: white;
+    }
+    </style>
+  </head>
+  <body style="background-color: #5C98FF;" class="d-flex flex-column min-vh-100">
+    <header style="flex: 0 0">
+      <section class="mb-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a href="/" class="h3 text-decoration-none text-white w-100 text-center font-weight-bold">Tutopoint</a>
+
+    </header>
+    <div class="hero-body flex-column d-flex justify-content-end align-items-center" style="margin-top: 10%;">
+        <%= @inner_content %>
+    </div>
+  </body>
+</html>

@@ -13,9 +13,9 @@
   <%= text_input f, :phone %>
   <%= error_tag f, :phone %>
 
-  <%= label f, :stripe %>
-  <%= text_input f, :stripe %>
-  <%= error_tag f, :stripe %>
+  <%= label f, :stripeid %>
+  <%= text_input f, :stripeid %>
+  <%= error_tag f, :stripeid %>
 
   <div>
     <%= submit "Save" %>

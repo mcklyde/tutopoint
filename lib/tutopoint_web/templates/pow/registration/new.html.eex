@@ -1,4 +1,4 @@
-<h1>Register</h1>
+<h1 class="text-white h1 font-weight-bold">Register</h1>
 
 <%= form_for @changeset, @action, [as: :user], fn f -> %>
   <%= if @changeset.action do %>
@@ -7,22 +7,28 @@
     </div>
   <% end %>
 
-  <%= label f, Pow.Ecto.Schema.user_id_field(@changeset) %>
-  <%= text_input f, Pow.Ecto.Schema.user_id_field(@changeset) %>
-  <%= error_tag f, Pow.Ecto.Schema.user_id_field(@changeset) %>
+  <div class="form-group">
 
-  <%= label f, :password %>
-  <%= password_input f, :password %>
+  <%= text_input f, Pow.Ecto.Schema.user_id_field(@changeset), placeholder: :Email, class: "form-control bg-transparent rounded-0 form-control-lg" %>
+  <%= error_tag f, Pow.Ecto.Schema.user_id_field(@changeset)%>
+
+  </div>
+
+  <div class="form-group">
+  <%= password_input f, :password, placeholder: :Password, class: "form-control bg-transparent rounded-0 form-control-lg" %>
   <%= error_tag f, :password %>
+  </div>
 
-  <%= label f, :password_confirmation %>
-  <%= password_input f, :password_confirmation %>
-  <%= error_tag f, :password_confirmation %>
+  <div class="form-group">
+  <%= password_input f, :password, placeholder: :"Confirm password", class: "form-control bg-transparent rounded-0 form-control-lg" %>
+  <%= error_tag f, :password %>
+  </div>
 
   <div>
-    <%= submit "Register" %>
+    <%= submit "Register", class: "btn btn-lg btn-block bg-white font-weight-bold h3 rounded-0", style: "color: #5C98FF"%>
+<h4 class="text-white text-center font-weight-light">Have an account?</h4>
+<span><%= link "Login", to: Routes.pow_session_path(@conn, :new), class: "btn btn-lg btn-block bg-white font-weight-bold h3 bg-transparent border border-white rounded-0 text-white" %></span>
   </div>
 <% end %>
 
 
-<span><%= link "Sign in", to: Routes.pow_session_path(@conn, :new) %></span>

@@ -16,6 +16,12 @@ defmodule TutopointWeb.Router do
       error_handler: Pow.Phoenix.PlugErrorHandler
   end
 
+  pipeline :auth do
+    plug :put_root_layout, {TutopointWeb.LayoutView, "auth.html"}
+    plug :put_layout, false
+
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -34,7 +40,7 @@ defmodule TutopointWeb.Router do
 
 
   scope "/", Pow.Phoenix, as: "pow" do
-    pipe_through :browser
+    pipe_through [:browser, :auth]
 
     get "/register", RegistrationController, :new
     post "/register", RegistrationController, :create
@@ -44,10 +50,11 @@ defmodule TutopointWeb.Router do
   end
 
   scope "/", TutopointWeb do
-    pipe_through :protected
     pipe_through :browser
 
     resources "/guides", GuideController
+    resources "/clients", ClientController
+    resources "/class", ClassController
     live "/", PageLive, :index
   end
 

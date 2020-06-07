@@ -1,0 +1,50 @@
+<h1>Listing Classes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Structure</th>
+      <th>Instructor</th>
+      <th>Subs</th>
+      <th>Course type</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th>Max student</th>
+      <th>Min</th>
+      <th>Waitlist</th>
+      <th>Price</th>
+      <th>Pay upfront</th>
+      <th>Comments</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for class <- @classes do %>
+    <tr>
+      <td><%= class.title %></td>
+      <td><%= class.structure %></td>
+      <td><%= class.instructor %></td>
+      <td><%= class.subs %></td>
+      <td><%= class.course_type %></td>
+      <td><%= class.description %></td>
+      <td><%= class.date %></td>
+      <td><%= class.max_student %></td>
+      <td><%= class.min %></td>
+      <td><%= class.waitlist %></td>
+      <td><%= class.price %></td>
+      <td><%= class.pay_upfront %></td>
+      <td><%= class.comments %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.class_path(@conn, :show, class) %></span>
+        <span><%= link "Edit", to: Routes.class_path(@conn, :edit, class) %></span>
+        <span><%= link "Delete", to: Routes.class_path(@conn, :delete, class), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Class", to: Routes.class_path(@conn, :new) %></span>

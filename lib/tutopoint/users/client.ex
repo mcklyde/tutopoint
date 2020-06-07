@@ -3,7 +3,7 @@ defmodule Tutopoint.Users.Client do
   import Ecto.Changeset
 
   schema "clients" do
-    field :user_id, :integer
+    belongs_to :user, Tutopoint.Users.User
     field :name, :string
     field :phone, :string
     field :stripeid, :string

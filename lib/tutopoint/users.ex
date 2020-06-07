@@ -39,7 +39,7 @@ defmodule Tutopoint.Users do
       ** (Ecto.NoResultsError)
 
   """
-  def get_guide!(id), do: Repo.get!(Guide, id)
+  def get_guide!(id), do: Repo.get!(Guide, id, preload: :account)
 
   @doc """
   Creates a guide.

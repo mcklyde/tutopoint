@@ -34,6 +34,7 @@
             </div>
           </form>
         </div>
+        <%= if Pow.Plug.current_user(@conn) do %>
         <div class="navbar-brand w-25 d-flex justify-content-end">
           <button class="btn btn-lg px-1 mr-2"><i class="text-white far fa-bell"></i></button>
           <div class="dropdown">
@@ -49,6 +50,14 @@
             </div>
           </div>
         </div>
+        <% else %>
+
+        <div class="navbar-brand w-25 d-flex justify-content-end">
+            <%= link "Sign in", to: Routes.pow_session_path(@conn, :new), class: "m-0 btn font-weight-bold h3 bg-transparent border border-white rounded-0 text-white" %>
+        </div>
+
+        <% end %>
+
       </nav>
       <nav class="navbar navbar-expand-lg bg-light p-0">
         <a href="/" class="navbar-brand w-25"></a>

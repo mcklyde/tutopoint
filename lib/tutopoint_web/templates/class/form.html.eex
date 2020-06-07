@@ -1,0 +1,63 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <%= label f, :title %>
+  <%= text_input f, :title %>
+  <%= error_tag f, :title %>
+
+  <%= label f, :structure %>
+  <%= text_input f, :structure %>
+  <%= error_tag f, :structure %>
+
+  <%= label f, :instructor %>
+  <%= number_input f, :instructor %>
+  <%= error_tag f, :instructor %>
+
+  <%= label f, :subs %>
+  <%= number_input f, :subs %>
+  <%= error_tag f, :subs %>
+
+  <%= label f, :course_type %>
+  <%= text_input f, :course_type %>
+  <%= error_tag f, :course_type %>
+
+  <%= label f, :description %>
+  <%= textarea f, :description %>
+  <%= error_tag f, :description %>
+
+  <%= label f, :date %>
+  <%= datetime_select f, :date %>
+  <%= error_tag f, :date %>
+
+  <%= label f, :max_student %>
+  <%= number_input f, :max_student %>
+  <%= error_tag f, :max_student %>
+
+  <%= label f, :min %>
+  <%= number_input f, :min %>
+  <%= error_tag f, :min %>
+
+  <%= label f, :waitlist %>
+  <%= checkbox f, :waitlist %>
+  <%= error_tag f, :waitlist %>
+
+  <%= label f, :price %>
+  <%= number_input f, :price %>
+  <%= error_tag f, :price %>
+
+  <%= label f, :pay_upfront %>
+  <%= checkbox f, :pay_upfront %>
+  <%= error_tag f, :pay_upfront %>
+
+  <%= label f, :comments %>
+  <%= textarea f, :comments %>
+  <%= error_tag f, :comments %>
+
+  <div>
+    <%= submit "Save" %>
+  </div>
+<% end %>

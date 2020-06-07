@@ -14,7 +14,7 @@
 
   <li>
     <strong>Stripe:</strong>
-    <%= @client.stripe %>
+    <%= @client.stripeid %>
   </li>
 
 </ul>

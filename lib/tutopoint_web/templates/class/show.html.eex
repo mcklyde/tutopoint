@@ -1,0 +1,73 @@
+<h1>Show Class</h1>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @class.title %>
+  </li>
+
+  <li>
+    <strong>Structure:</strong>
+    <%= @class.structure %>
+  </li>
+
+  <li>
+    <strong>Instructor:</strong>
+    <%= @class.instructor %>
+  </li>
+
+  <li>
+    <strong>Subs:</strong>
+    <%= @class.subs %>
+  </li>
+
+  <li>
+    <strong>Course type:</strong>
+    <%= @class.course_type %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @class.description %>
+  </li>
+
+  <li>
+    <strong>Date:</strong>
+    <%= @class.date %>
+  </li>
+
+  <li>
+    <strong>Max student:</strong>
+    <%= @class.max_student %>
+  </li>
+
+  <li>
+    <strong>Min:</strong>
+    <%= @class.min %>
+  </li>
+
+  <li>
+    <strong>Waitlist:</strong>
+    <%= @class.waitlist %>
+  </li>
+
+  <li>
+    <strong>Price:</strong>
+    <%= @class.price %>
+  </li>
+
+  <li>
+    <strong>Pay upfront:</strong>
+    <%= @class.pay_upfront %>
+  </li>
+
+  <li>
+    <strong>Comments:</strong>
+    <%= @class.comments %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.class_path(@conn, :edit, @class) %></span>
+<span><%= link "Back", to: Routes.class_path(@conn, :index) %></span>
