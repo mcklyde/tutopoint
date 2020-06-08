@@ -65,6 +65,9 @@ config :tutopoint, TutopointWeb.Endpoint,
     ]
   ]
 
+# Stripe config test keys
+config :stripity_stripe, api_key: "sk_test_cU5HFvVYDX1l67i8nnxMeygZ00IYygEKKW"
+
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
 

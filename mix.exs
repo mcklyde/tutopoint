@@ -48,6 +48,7 @@ defmodule Tutopoint.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:ex_doc, "~> 0.21", only: :dev, runtime: false},
+      {:stripity_stripe, "~> 2.0"},
       {:pow, "~> 1.0.20"}
     ]
   end
