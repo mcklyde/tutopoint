@@ -4,6 +4,7 @@ defmodule Tutopoint.Users.Guide do
 
   schema "guides" do
     belongs_to :user, Tutopoint.Users.User
+    field :name, :string
     field :college, :string
     field :grade, :string
     field :hs, :string
@@ -17,7 +18,7 @@ defmodule Tutopoint.Users.Guide do
   @doc false
   def changeset(guide, attrs) do
     guide
-    |> cast(attrs, [:college, :major, :grade, :hs, :language, :stripeid, :user_id])
-    |> validate_required([:college, :major, :grade, :hs, :language, :stripeid, :user_id])
+    |> cast(attrs, [:college, :major, :grade, :hs, :language, :stripeid, :user_id, :name])
+    |> validate_required([:college, :major, :grade, :hs, :language, :stripeid, :user_id, :name])
   end
 end

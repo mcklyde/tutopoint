@@ -4,6 +4,7 @@ defmodule Tutopoint.Repo.Migrations.CreateGuides do
   def change do
     create table(:guides) do
       add :user_id, references("users"), null: false
+      add :name, :string
       add :college, :string
       add :major, :string
       add :grade, :string
@@ -14,6 +15,5 @@ defmodule Tutopoint.Repo.Migrations.CreateGuides do
       timestamps()
     end
 
-    create unique_index(:guides, [:user_id])
   end
 end

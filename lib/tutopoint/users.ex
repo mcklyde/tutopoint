@@ -71,7 +71,7 @@ defmodule Tutopoint.Users do
 
       end
     else
-      Map.put(userChangeset, :errors, userChangeset.errors ++ guideChangeset.errors)
+      {:error, Map.put(userChangeset, :errors, userChangeset.errors ++ guideChangeset.errors)}
 
     end
   end
@@ -184,7 +184,7 @@ defmodule Tutopoint.Users do
 
       end
     else
-      Map.put(userChangeset, :errors, userChangeset.errors ++ clientChangeset.errors)
+      {:error, Map.put(userChangeset, :errors, userChangeset.errors ++ clientChangeset.errors)}
 
     end
   end

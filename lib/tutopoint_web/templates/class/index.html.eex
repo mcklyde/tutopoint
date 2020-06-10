@@ -29,7 +29,6 @@
       <td><%= class.subs %></td>
       <td><%= class.course_type %></td>
       <td><%= class.description %></td>
-      <td><%= class.date %></td>
       <td><%= class.max_student %></td>
       <td><%= class.min %></td>
       <td><%= class.waitlist %></td>

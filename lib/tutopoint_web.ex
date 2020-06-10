@@ -88,6 +88,7 @@ defmodule TutopointWeb do
 
       import TutopointWeb.ErrorHelpers
       import TutopointWeb.Gettext
+      alias TutopointWeb.Bootstrap.Helper
       alias TutopointWeb.Router.Helpers, as: Routes
     end
   end

@@ -31,22 +31,22 @@ defmodule TutopointWeb.Router do
   end
 
   pipeline :user do
-    plug TutopointWeb.EnsureRolePlug, :admin
+    plug TutopointWeb.EnsureRolePlug, :user
   end
 
   pipeline :guide do
-    plug TutopointWeb.EnsureRolePlug, :admin
+    plug TutopointWeb.EnsureRolePlug, :guide
   end
 
 
-  scope "/", Pow.Phoenix, as: "pow" do
+  scope "/", as: "pow" do
     pipe_through [:browser, :auth]
 
-    get "/register", RegistrationController, :new
-    post "/register", RegistrationController, :create
-    get "/signin", SessionController, :new
-    get "/logout", SessionController, :delete
-    post "/signin", SessionController, :create
+    get "/register", TutopointWeb.RegisterController, :new
+    post "/register", TutopointWeb.RegisterController, :create
+    get "/signin", Pow.Phoenix.SessionController, :new
+    get "/logout", Pow.Phoenix.SessionController, :delete
+    post "/signin", Pow.Phoenix.SessionController, :create
   end
 
   scope "/", TutopointWeb do
@@ -55,7 +55,7 @@ defmodule TutopointWeb.Router do
     resources "/guides", GuideController
     resources "/clients", ClientController
     resources "/class", ClassController
-    live "/", PageLive, :index
+    get "/", RootController, :index
   end
 
   # Other scopes may use custom stacks.

@@ -34,7 +34,7 @@
 
   <li>
     <strong>Date:</strong>
-    <%= @class.date %>
+    <%= DateTime.to_string(@class.date) %>
   </li>
 
   <li>
