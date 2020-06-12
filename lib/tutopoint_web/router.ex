@@ -39,6 +39,13 @@ defmodule TutopointWeb.Router do
   end
 
 
+  scope "/", TutopointWeb do
+    pipe_through [:browser, :guide]
+
+
+  end
+
+
   scope "/", as: "pow" do
     pipe_through [:browser, :auth]
 
@@ -52,6 +59,7 @@ defmodule TutopointWeb.Router do
   scope "/", TutopointWeb do
     pipe_through :browser
 
+    get "/dashboard", DashboardController, :index
     resources "/guides", GuideController
     resources "/clients", ClientController
     resources "/class", ClassController
@@ -75,7 +83,7 @@ defmodule TutopointWeb.Router do
 
     scope "/" do
       pipe_through :browser
-      live_dashboard "/dashboard", metrics: TutopointWeb.Telemetry
+      live_dashboard "/stats/dashboard", metrics: TutopointWeb.Telemetry
     end
   end
 end
